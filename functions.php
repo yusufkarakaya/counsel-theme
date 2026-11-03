@@ -1,4 +1,5 @@
 <?php
+require_once get_template_directory() . '/inc/post-types.php';
 require get_theme_file_path('inc/icons.php');
 
 add_action('after_setup_theme', function () {
@@ -13,13 +14,17 @@ add_action('after_setup_theme', function () {
 });
 
 add_action('wp_enqueue_scripts', function () {
-    $version = wp_get_theme()->get('Version');
-    wp_enqueue_style('counsel-style', get_stylesheet_uri(), [], $version);
+    wp_enqueue_style(
+        'counsel-style',
+        get_stylesheet_uri(),
+        [],
+        filemtime(get_theme_file_path('style.css'))
+    );
     wp_enqueue_script(
         'counsel-main',
         get_theme_file_uri('assets/js/main.js'),
         [],
-        $version,
+        filemtime(get_theme_file_path('assets/js/main.js')),
         ['strategy' => 'defer', 'in_footer' => true]
     );
 });
@@ -94,3 +99,12 @@ function counsel_nav_fallback()
     }
     echo '</ul>';
 }
+
+add_filter('acf/settings/save_json', function () {
+    return get_stylesheet_directory() . '/acf-json';
+});
+
+add_filter('acf/settings/load_json', function ($paths) {
+    $paths[] = get_stylesheet_directory() . '/acf-json';
+    return $paths;
+});
