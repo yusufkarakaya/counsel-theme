@@ -1,11 +1,11 @@
 <?php
-$attorneys = [
+$attorneys = $args['attorneys'] ?? [
     ['name' => 'Jackson Bauer',    'role' => 'Finance Lawyer',          'image' => 'attorney-1.png'],
     ['name' => 'Stephanie Reilly', 'role' => 'Criminal Defence Lawyer', 'image' => 'attorney-2.png'],
     ['name' => 'Matthew Webb',     'role' => 'Tax Lawyer',              'image' => 'attorney-3.png'],
 ];
 ?>
-<section class="attorneys section--warm">
+<section class="attorneys section--warm <?php echo esc_attr($args['class'] ?? ''); ?>">
     <div class="container">
         <header class="section-head">
             <h2 class="section-title">Our Attorneys</h2>

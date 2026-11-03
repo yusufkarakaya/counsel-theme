@@ -28,7 +28,7 @@ foreach (array_slice($samples, count($cards)) as $title) {
     ];
 }
 ?>
-<section class="blog section--warm">
+<section class="blog <?php echo esc_attr($args['class'] ?? 'section--warm'); ?>">
     <div class="container">
         <header class="section-head section-head--lg">
             <h2 class="section-title">Our Blog</h2>

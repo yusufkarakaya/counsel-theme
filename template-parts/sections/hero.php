@@ -5,9 +5,10 @@ $args = wp_parse_args($args, [
     'text'        => '',
     'button_text' => '',
     'button_url'  => '',
+    'class'       => 'section--dark',
 ]);
 ?>
-<section class="hero hero--<?php echo esc_attr($args['variant']); ?> section--dark" <?php echo counsel_bg('hero.jpg'); ?>>
+<section class="hero hero--<?php echo esc_attr($args['variant']); ?> <?php echo esc_attr($args['class']); ?>" <?php echo $args['class'] === 'section--dark' ? counsel_bg('hero.jpg') : ''; ?>>
     <div class="container hero__inner">
         <h1 class="hero__title"><?php echo esc_html($args['title']); ?></h1>
 

@@ -7,7 +7,7 @@
         'title'       => 'Legal Solutions for Business and Individual Needs',
         'text'        => 'Pretium purus feugiat volutpat pellentesque. Potenti porta mauris nec vulputate.',
         'button_text' => 'Make enquiry',
-        'button_url'  => home_url('/contact-us/'),
+        'button_url'  => counsel_page_url('contact'),
     ]);
 
     get_template_part('template-parts/sections/about');

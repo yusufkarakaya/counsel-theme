@@ -1,9 +1,9 @@
 <?php
 $links = [
     'Home'       => home_url('/'),
-    'Services'   => home_url('/services/'),
-    'About Us'   => home_url('/about-us/'),
-    'Contact Us' => home_url('/contact-us/'),
+    'Services'   => counsel_page_url('services'),
+    'About Us'   => counsel_page_url('about'),
+    'Contact Us' => counsel_page_url('contact'),
 ];
 $practice_areas = ['Banking and Finance', 'Business Law', 'Real Estate', 'Family Law'];
 ?>

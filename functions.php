@@ -62,15 +62,24 @@ function counsel_bg($file)
 }
 
 /**
+ * Permalink of a page by slug, with a pretty-URL fallback when the page doesn't exist.
+ */
+function counsel_page_url($slug)
+{
+    $page = get_page_by_path($slug);
+    return $page ? get_permalink($page) : home_url('/' . $slug . '/');
+}
+
+/**
  * Primary menu fallback when no menu is assigned in Appearance → Menus.
  */
 function counsel_nav_fallback()
 {
     $items = [
         'Home'       => home_url('/'),
-        'Services'   => home_url('/services/'),
-        'About us'   => home_url('/about-us/'),
-        'Contact us' => home_url('/contact-us/'),
+        'Services'   => counsel_page_url('services'),
+        'About us'   => counsel_page_url('about'),
+        'Contact us' => counsel_page_url('contact'),
     ];
 
     echo '<ul class="site-nav__list">';
