@@ -13,11 +13,12 @@
 <header class="site-header">
     <div class="container site-header__inner">
 
-        <a class="site-header__logo" href="<?php echo esc_url(home_url('/')); ?>">
+        <a class="site-header__logo logo" href="<?php echo esc_url(home_url('/')); ?>">
             <?php if (has_custom_logo()) : ?>
                 <?php echo wp_get_attachment_image(get_theme_mod('custom_logo'), 'full'); ?>
             <?php else : ?>
-                <?php bloginfo('name'); ?>
+                <?php echo counsel_icon('logo'); ?>
+                <span><?php bloginfo('name'); ?></span>
             <?php endif; ?>
         </a>
 
@@ -32,12 +33,15 @@
                 'theme_location' => 'primary',
                 'container'      => false,
                 'menu_class'     => 'site-nav__list',
-                'fallback_cb'    => false,
+                'fallback_cb'    => 'counsel_nav_fallback',
             ]);
             ?>
         </nav>
 
-        <a class="site-header__phone" href="tel:+12573886895">(257) 388-6895</a>
+        <a class="site-header__phone" href="tel:+12573886895">
+            <?php echo counsel_icon('phone'); ?>
+            (257) 388-6895
+        </a>
 
     </div>
 </header>
